@@ -51,7 +51,8 @@ webhook.post("/webhook", async (req, res) => {
 
       const channel = chatServer.channel("messaging", "order_tracking", {
         name: "Order Tracker",
-        members: [from, "businessowner"]
+        members: [from, "businessowner"],
+        created_by_id: from,
       });
       await channel.create()
       

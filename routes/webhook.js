@@ -82,7 +82,7 @@ webhook.post("/webhook", async (req, res) => {
       
     
 
-    if(msg_body.toLowerCase().trim() === "/product"){
+    if(msg_body.toLowerCase().trim() === "#product"){
       
       sendInteractiveProductMessage(from)
     }

@@ -5,7 +5,7 @@ const webhook = express
 
 const {StreamChat} = require("stream-chat")
 
-const { sendUserAMessage, sendInteractiveProductMessage, sendAddressMessage } = require("../utils")
+const { sendUserAMessage, sendInteractiveProductMessage } = require("../utils")
 const chatServer = StreamChat.getInstance(
   process.env.STREAM_KEY,
   process.env.STREAM_SECRET
@@ -84,9 +84,6 @@ webhook.post("/webhook", async (req, res) => {
     if(msg_body.toLowerCase().trim() === "/product"){
       
       sendInteractiveProductMessage(from)
-    }
-    if(msg_body.toLowerCase().trim() === "/test"){
-      sendAddressMessage(from)
     }
       
 

@@ -83,40 +83,8 @@ const sendInteractiveProductMessage = (phone) => {
   });
   
 }
-
-const sendAddressMessage = (phone) => {
-   axios
-     ({
-        method: "POST",
-        url: `https://graph.facebook.com/v22.0/${business_phone_id}/messages?access_token=${whatsappToken}`,
-        data: {
-          messaging_product: "whatsapp",
-          recipient_type: "individual",
-          to: `${phone}`,
-          type: "interactive",
-          interactive: {
-            type: "address_message",
-            body: {
-              text: "Thanks for your order! Tell us what address you'd like this order delivered to"
-            },
-            action: {
-              name: "address_message",
-              parameters: {
-                country: "IN"
-              }
-            }
-          }
-        }
-     
-   })
-  
-  
-}
-
-
  
 
-
-module.exports = { sendUserAMessage, sendInteractiveProductMessage, sendAddressMessage }
+module.exports = { sendUserAMessage, sendInteractiveProductMessage }
                  
 

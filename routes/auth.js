@@ -1,5 +1,6 @@
 const express = require('express');
 const auth = express.Router();
+const { StreamChat } = require('stream-chat')
 
 
 const chatServer = StreamChat.getInstance(

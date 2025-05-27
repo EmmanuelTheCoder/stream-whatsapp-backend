@@ -3,7 +3,7 @@ const webhook = express
   .Router()
   .use(express.json(), express.urlencoded({ extended: false }));
 
-const { StreamChat } = require("stream-chat")
+const {StreamChat} = require("stream-chat")
 
 const { sendUserAMessage, sendInteractiveProductMessage, sendAddressMessage } = require("../utils")
 const chatServer = StreamChat.getInstance(
@@ -13,7 +13,7 @@ const chatServer = StreamChat.getInstance(
 
 
 
-
+ 
 
 const token = process.env.WHATSAPP_TOKEN;
 

@@ -7,7 +7,7 @@ const { sendUserAMessage } = require("../utils")
 response.post("/response", (req, res) => {
     const {chat, phoneNumber } = req.body;
     console.log("chat", chat, "phone number", phoneNumber)
-    sendUserAMessage(chat, phoneNumber)
+    sendUserAMessage(phoneNumber, chat)
 
 });
 

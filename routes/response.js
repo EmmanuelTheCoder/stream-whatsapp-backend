@@ -1,5 +1,6 @@
 const express = require ("express");
-const response = express.Router();
+const cors = require ("cors")
+const response = express.Router().use(cors());
 const { sendUserAMessage } = require("../utils")
 
 

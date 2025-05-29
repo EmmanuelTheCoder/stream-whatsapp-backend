@@ -13,15 +13,9 @@ const chatServer = StreamChat.getInstance(
 
 
 
- 
-
-const token = process.env.WHATSAPP_TOKEN;
-
-
 
 webhook.post("/webhook", async (req, res) => {
   // Parse the request body from the POST
-  let body = req.body;
 
   // Check the Incoming webhook message
   console.log(JSON.stringify(req.body, null, 2));
@@ -35,10 +29,8 @@ webhook.post("/webhook", async (req, res) => {
       req.body.entry[0].changes[0].value.messages &&
       req.body.entry[0].changes[0].value.messages[0]
     ) {
-        let phone_number_id =
-          req.body.entry[0].changes[0].value.metadata.phone_number_id;
+        
         let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
-        //let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
         const msg_type = req.body.entry[0].changes[0].value.messages[0].type;
       
       //create users
@@ -57,14 +49,6 @@ webhook.post("/webhook", async (req, res) => {
       await channel.create()
       
       
-
-        const checkIsInteractive = (type) => {
-          if (type === "interactive") {
-            return true;
-          } else return false;
-        };
-
-      const isInteractive = checkIsInteractive(msg_type);
 
       const assignMsgVal = (type) => {
         let msg_body;
@@ -136,3 +120,13 @@ webhook.get("/webhook", (req, res) => {
 });
 
 module.exports = webhook;
+
+
+
+// const checkIsInteractive = (type) => {
+//     if (type === "interactive") {
+//       return true;
+//     } else return false;
+//   };
+
+// const isInteractive = checkIsInteractive(msg_type);
